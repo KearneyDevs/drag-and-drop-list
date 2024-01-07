@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: "Task 1" },
+    { id: 2, text: "Task 2" },
+    { id: 3, text: "Task 3" },
+  ]);
+
+  const handleDragStart = (e, id) => {
+    e.dataTransfer.setData("text/plain", id);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e, targetId) => {
+    e.preventDefault();
+
+    const draggedId = e.dataTransfer.getData("text/plain");
+    const draggedTask = tasks.find((task) => task.id.toString() === draggedId);
+    const updatedTasks = tasks.filter(
+      (task) => task.id.toString() !== draggedId
+    );
+    const targetIndex = tasks.findIndex(
+      (task) => task.id.toString() === targetId
+    );
+
+    updatedTasks.splice(targetIndex, 0, draggedTask);
+
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Drag and Drop Example</h1>
+      <div className="task-container">
+        {tasks.map(({ id, text }) => (
+          <div
+            key={id}
+            className="task"
+            draggable
+            onDragStart={(e) => handleDragStart(e, id)}
+            onDragOver={handleDragOver}
+            onDrop={(e) => handleDrop(e, id)}
+          >
+            {text}
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

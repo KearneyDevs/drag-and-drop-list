@@ -1,52 +1,49 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 
 const App = () => {
+  const draggedItemId = useRef(null);
   const [tasks, setTasks] = useState([
     { id: 1, text: "Task 1" },
     { id: 2, text: "Task 2" },
     { id: 3, text: "Task 3" },
   ]);
 
-  const handleDragStart = (e, id) => {
-    e.dataTransfer.setData("text/plain", id);
+  const handleDragStart = (id) => {
+    draggedItemId.current = id;
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
-  const handleDrop = (e, targetId) => {
-    e.preventDefault();
-
-    const draggedId = e.dataTransfer.getData("text/plain");
-    const draggedTask = tasks.find((task) => task.id.toString() === draggedId);
+  const handleDrop = (targetId) => {
+    const draggedTask = tasks.find((task) => task.id === draggedItemId.current);
     const updatedTasks = tasks.filter(
-      (task) => task.id.toString() !== draggedId
+      (task) => task.id !== draggedItemId.current
     );
-    const targetIndex = tasks.findIndex(
-      (task) => task.id.toString() === targetId
-    );
+    const targetIndex = tasks.findIndex((task) => task.id === targetId);
 
     updatedTasks.splice(targetIndex, 0, draggedTask);
 
     setTasks(updatedTasks);
+    draggedItemId.current = null;
   };
 
   return (
     <div className="App">
       <h1>Drag and Drop Example</h1>
       <div className="task-container">
-        {tasks.map(({ id, text }) => (
+        {tasks.map((task) => (
           <div
-            key={id}
+            key={task.id}
             className="task"
             draggable
-            onDragStart={(e) => handleDragStart(e, id)}
+            onDragStart={() => handleDragStart(task.id)}
             onDragOver={handleDragOver}
-            onDrop={(e) => handleDrop(e, id)}
+            onDrop={() => handleDrop(task.id)}
           >
-            {text}
+            {task.text}
           </div>
         ))}
       </div>

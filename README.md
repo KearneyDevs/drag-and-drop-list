@@ -115,7 +115,7 @@ First we need to create three variables:
 **updatedTasks:** which filters the currently dragged item from the tasks list.
 **targetIndex:** uses the findIndex method on the tasks list to determine which index the dragged item gets set to.
 
-## Use of splice
+### Use of splice
 
 The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
 
@@ -142,6 +142,6 @@ const handleDrop = (targetId) => {
 };
 ```
 
-## My understanding of the splice method in handleDrop
+### My understanding of the splice method in handleDrop
 
 I am using the splice method to replace items within the tasks list. I provide the splice method with the targetIndex of where I want the dragged list item to be inserted, I then tell it that no elements should be removed from the list, and the third parameter I tell it to insert the element to the intended targetIndex.

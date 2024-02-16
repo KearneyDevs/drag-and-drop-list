@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #1b1a25;
+  height: 100vh;
+}
+
+h1 {
+  color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.task {
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 10px;
+  background: rgb(51, 53, 66);
+}
+
+.task-container p {
+  text-align: center;
+  color: #fff;
+}

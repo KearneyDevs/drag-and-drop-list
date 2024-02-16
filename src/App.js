@@ -4,9 +4,9 @@ import "./App.css";
 const App = () => {
   const draggedItemId = useRef(null);
   const [tasks, setTasks] = useState([
-    { id: 1, text: "Task 1" },
-    { id: 2, text: "Task 2" },
-    { id: 3, text: "Task 3" },
+    { id: 1, text: "React" },
+    { id: 2, text: "Vue" },
+    { id: 3, text: "Angular" },
   ]);
 
   const handleDragStart = (id) => {
@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Drag and Drop Example</h1>
+      <h1>React drag and drop example</h1>
       <div className="task-container">
         {tasks.map((task) => (
           <div
@@ -45,7 +45,7 @@ const App = () => {
             onDragOver={handleDragOver}
             onDrop={() => handleDrop(task.id)}
           >
-            {task.text}
+            <p>{task.text}</p>
           </div>
         ))}
       </div>

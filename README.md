@@ -111,8 +111,11 @@ onDrop: A DragEvent handler function. Fires when something is dropped on a valid
 ## My understanding of handleDrop
 
 First we need to create three variables:
+
 **draggedTask:** which finds a task within our tasks list that is equal to the useRef variable draggedItemId.current. This is the task we are dragging.
+
 **updatedTasks:** which filters the currently dragged item from the tasks list.
+
 **targetIndex:** uses the findIndex method on the tasks list to determine which index the dragged item gets set to.
 
 ### Use of splice

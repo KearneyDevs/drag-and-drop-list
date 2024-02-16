@@ -19,9 +19,11 @@ const App = () => {
 
   const handleDrop = (targetId) => {
     const draggedTask = tasks.find((task) => task.id === draggedItemId.current);
+
     const updatedTasks = tasks.filter(
       (task) => task.id !== draggedItemId.current
     );
+
     const targetIndex = tasks.findIndex((task) => task.id === targetId);
 
     updatedTasks.splice(targetIndex, 0, draggedTask);

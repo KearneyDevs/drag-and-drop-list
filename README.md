@@ -100,11 +100,11 @@ return (
 
 ## DOM props
 
-draggable: A boolean. Specifies whether the element is draggable and is part of the drag and drop api.
+**draggable:** A boolean. Specifies whether the element is draggable and is part of the drag and drop api.
 
-onDragStart: A DragEvent handler function. Fires when the user starts dragging an element.
+**onDragStart:** A DragEvent handler function. Fires when the user starts dragging an element.
 
-onDragOver: A DragEvent handler function. Fires on a valid drop target while the dragged content is dragged over it. You must call e.preventDefault() here to allow dropping.
+**onDragOver:** A DragEvent handler function. Fires on a valid drop target while the dragged content is dragged over it. You must call e.preventDefault() here to allow dropping.
 
 onDrop: A DragEvent handler function. Fires when something is dropped on a valid target.
 

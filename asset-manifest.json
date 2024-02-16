@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/drag-and-drop-list/static/css/main.50ec61f6.css",
+    "main.js": "/drag-and-drop-list/static/js/main.ca0d8b48.js",
+    "index.html": "/drag-and-drop-list/index.html",
+    "main.50ec61f6.css.map": "/drag-and-drop-list/static/css/main.50ec61f6.css.map",
+    "main.ca0d8b48.js.map": "/drag-and-drop-list/static/js/main.ca0d8b48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50ec61f6.css",
+    "static/js/main.ca0d8b48.js"
+  ]
+}

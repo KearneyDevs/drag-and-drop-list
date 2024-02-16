@@ -108,7 +108,7 @@ onDragOver: A DragEvent handler function. Fires on a valid drop target while the
 
 onDrop: A DragEvent handler function. Fires when something is dropped on a valid target.
 
-### My understanding of handleDrop
+## My understanding of handleDrop
 
 First we need to create three variables:
 **draggedTask:** which finds a task within our tasks list that is equal to the useRef variable draggedItemId.current. This is the task we are dragging.

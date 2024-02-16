@@ -36,16 +36,16 @@ const App = () => {
     <div className="App">
       <h1>React drag and drop example</h1>
       <div className="task-container">
-        {tasks.map((task) => (
+        {tasks.map(({ id, text }) => (
           <div
-            key={task.id}
+            key={id}
             className="task"
             draggable
-            onDragStart={() => handleDragStart(task.id)}
+            onDragStart={() => handleDragStart(id)}
             onDragOver={handleDragOver}
-            onDrop={() => handleDrop(task.id)}
+            onDrop={() => handleDrop(id)}
           >
-            <p>{task.text}</p>
+            <p>{text}</p>
           </div>
         ))}
       </div>
